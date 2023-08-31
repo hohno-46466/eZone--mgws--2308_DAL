@@ -9,8 +9,15 @@
 
 // -----------------------------------------------------------------------------
 
+// If you have not yet installed the MQTT library, please install the MQTT library
+// (MQTT library for Processing based on the Eclipse Paho project) using the Library Manager.
+
+// Go to [Sketch] -> [Import Library] -> [Manage Libraries] then search for "MQTT"
+
+// -----------------------------------------------------------------------------
+
 // Number of guages
-final int Nguages = 5;            // ゲージの数
+int Nguages = 2;            // ゲージの数
 
 // -----------------------------------------------------------------------------
 
@@ -68,10 +75,9 @@ final int textPosY = int(screenHight * 0.8);      // テキスト表示位置の
 //
 void settings() {
   float rate;
-  if (Nguages <= 2) {
-    // Nguage は固定値なので，以下の if文は dead code と言わてしまっているが，
-    // 将来 Nguages を不用意に変更してしまった時の安全策なので警告を気にしてはいけない
-    rate = 2.0;
+  if (Nguages <= 1) {
+    rate = 1.0;
+    Nguages = 1;
   } else {
     rate = Nguages - overlapRate * (Nguages - 1);
   }
@@ -81,13 +87,15 @@ void settings() {
 
 // -----------------------------------------------------------------------------
 
-// void setup() {
+// void setupX() {
 //   String[] fontList = PFont.list();
 //   for (int i = 0; i < fontList.length; i++) {
 //     println(fontList[i]);
 //   }
 //   noLoop();
 //}
+
+// -----------------------------------------------------------------------------
 
 // setup()
 //
@@ -96,7 +104,8 @@ void setup() {
   background(colorBG);
 
   // フォントの設定
-  font = createFont("NotoSansOriya", 24);
+  // font = createFont("NotoSansOriya", 24);
+  font = createFont("Century Gothic", 24);
   textFont(font);
   textAlign(CENTER);
 
@@ -204,8 +213,5 @@ void messageReceived(String topic, byte[] payload) {
 void connectionLost() {
   println("Warning: connection lost");
 }
-
-// -----------------------------------------------------------------------------
-
 
 // -----------------------------------------------------------------------------
