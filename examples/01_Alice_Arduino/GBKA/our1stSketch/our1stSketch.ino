@@ -7,7 +7,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Hello, World!\t");
+  Serial.print("Hello, World! I'm GBKA.\t");
   Serial.println(millis());
   delay(1000);
 }

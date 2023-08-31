@@ -1,14 +1,14 @@
 //
-// ourSerialRead1.ino
+// our4thSketch.ino
 //
 
-// Last update: Thu Dec 15 21:06:00 JST 2022
+// Last update: Thu Aug 31 08:59:07 ADT 2023
 
 int val1 = 0, val2 = 0, val3 = 0;
 
 void setup() {
   Serial.begin(57600);
-  Serial.print("#debug:\tHello, Kanazawa!\n");
+  Serial.print("#debug:\tHello, Halifax! A message from GBKA.\n");
 }
 
 void loop() {
